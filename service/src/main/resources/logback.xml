@@ -1,0 +1,14 @@
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%date %boldGreen(%-5level) --- [%-15thread] %cyan(%-36logger{36}): %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="console" />
+    </root>
+    <logger name="com.payoneer" level="debug"/>
+</configuration>

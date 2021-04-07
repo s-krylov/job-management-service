@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: createQuartzTables
+      author: skrylov
+      changes:
+        - sqlFile:
+            path: createQuartzTables.sql
+            relativeToChangelogFile: true

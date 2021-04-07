@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  postgresql:
+    image: postgres:13.2
+    container_name: postgresql
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: 123
+
+  service:
+    image: payoneer/job-service:1.0
+    container_name: service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresql
+
+
+#  mail server
+#    etc
+
+volumes:
+  pgdata:
