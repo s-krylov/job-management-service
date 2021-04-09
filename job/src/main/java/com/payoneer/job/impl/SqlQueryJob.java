@@ -1,31 +1,27 @@
 package com.payoneer.job.impl;
 
 import com.payoneer.job.common.Job;
-import com.payoneer.job.common.JobState;
 
 import java.util.Map;
+
 
 public class SqlQueryJob implements Job {
 
 
+
     @Override
-    public JobState getState() {
+    public Map<String, String> run(Map<String, String> params) {
+        System.out.println("run");
         return null;
     }
 
     @Override
-    public void setState(JobState state) {
-
-    }
-
-    @Override
-    public Object run(Map params) {
-        System.out.println("lol");
-        return null;
+    public void commit() {
+        System.out.println("commit");
     }
 
     @Override
     public void rollback() {
-
+        System.out.println("rollback");
     }
 }

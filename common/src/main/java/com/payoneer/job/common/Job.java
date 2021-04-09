@@ -5,26 +5,19 @@ import java.util.Map;
 /**
  * General purpose Job
  */
-public interface Job<T> {
-
-    /**
-     * @return current job state
-     */
-    JobState getState();
-
-    /**
-     * Sets current job state
-     * @param state
-     */
-    void setState(JobState state);
+public interface Job {
 
     /**
      * Runs job with passed {@code params} as argument
      * @param params parameters
      * @return result
      */
-    T run(Map<String, Object> params);
+    Map<String, String> run(Map<String, String> params);
 
+    /**
+     * Action need to be done to commit changes. Job Specific
+     */
+    void commit();
 
     /**
      * Action need to be done to rollback changes. Job Specific

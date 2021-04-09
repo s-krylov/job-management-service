@@ -1,8 +1,16 @@
 databaseChangeLog:
   - changeSet:
-      id: createQuartzTables
+      id: init-createQuartzTables
       author: skrylov
       changes:
         - sqlFile:
             path: createQuartzTables.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: init-createJobInfoTables
+      author: skrylov
+      changes:
+        - sqlFile:
+            path: createJobInfoTables.sql
             relativeToChangelogFile: true

@@ -5,6 +5,7 @@ services:
     container_name: postgresql
     restart: always
     ports:
+#      remove line below if you don't want to work with db manually
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data/
@@ -16,9 +17,9 @@ services:
     container_name: service
     ports:
       - "8080:8080"
-      - "5005:5005"
     environment:
-      - "CATALINA_OPTS=-Duser.timezone=Europe/Moscow -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+#      remove line below if UTC timezone is OK for you
+      - "CATALINA_OPTS=-Duser.timezone=Europe/Moscow"
     depends_on:
       - postgresql
 

@@ -1,6 +1,6 @@
 package com.payoneer.job.service.rest;
 
-import com.payoneer.job.service.service.JobManagementService;
+import com.payoneer.job.service.service.JobFacadeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -20,13 +20,13 @@ import java.util.Map;
 @Slf4j
 public class JobManagementRestController {
 
-    private final JobManagementService jobManagementService;
+    private final JobFacadeService jobFacadeService;
 
 
     @RequestMapping(path = "/execute/{name}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public Object executeJob(@PathVariable String name, @RequestParam Map<String, String> params) {
         log.debug("Start job execution");
-        return jobManagementService.executeJob(name, params);
+        return jobFacadeService.executeJob(name, params);
     }
 
 
@@ -34,13 +34,14 @@ public class JobManagementRestController {
     public Object scheduleJob(@PathVariable String name, @PathVariable LocalDateTime dateTime,
                               @RequestParam Map<String, String> params) {
         log.debug("Start job scheduling");
-        return jobManagementService.scheduleJob(name, params, dateTime);
+        return jobFacadeService.scheduleJob(name, params, dateTime);
     }
 
 
-    @RequestMapping(path = "/get", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Object receiveJobState() {
-        return "OK";
+    @RequestMapping(path = "/get/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object findJobInfo(@PathVariable Long id) {
+        log.debug("Start job info search");
+        return jobFacadeService.getJobInfo(id);
     }
 
 }

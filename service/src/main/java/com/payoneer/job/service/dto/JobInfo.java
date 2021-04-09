@@ -6,10 +6,11 @@ import lombok.Data;
 
 
 @Data
-@Builder
+@Builder(toBuilder = true)
 public class JobInfo {
 
     private Long id;
+    private String name;
     private JobState state;
 
 }
