@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Job management service
+ * Job facade service
  */
 public interface JobFacadeService {
 

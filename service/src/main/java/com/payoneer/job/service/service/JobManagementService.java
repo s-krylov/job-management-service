@@ -5,8 +5,11 @@ import com.payoneer.job.service.dto.JobInfo;
 import java.util.List;
 import java.util.Map;
 
-public interface JobManagementService {
 
+/**
+ * Job management service
+ */
+public interface JobManagementService {
 
     Map<String, String> executeJob(String name, String className, Map<String, String> params);
 
