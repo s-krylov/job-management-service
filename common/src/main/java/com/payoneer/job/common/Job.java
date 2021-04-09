@@ -12,7 +12,7 @@ public interface Job {
      * @param params parameters
      * @return result
      */
-    Map<String, String> run(Map<String, String> params);
+    Object run(Map<String, String> params);
 
     /**
      * Action need to be done to commit changes. Job Specific

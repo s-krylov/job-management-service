@@ -10,12 +10,23 @@
     <version>1.0</version>
 
     <properties>
+        <lombok.version>1.18.18</lombok.version>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
     <build>
         <finalName>common</finalName>
+
+
     </build>
 
 </project>

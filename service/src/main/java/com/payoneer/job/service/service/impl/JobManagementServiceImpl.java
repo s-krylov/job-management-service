@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Modifier;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ public class JobManagementServiceImpl implements JobManagementService {
     private final JobInfoDao jobInfoDao;
 
     @Override
-    public Map<String, String> executeJob(String name, String className, Map<String, String> params) {
+    public Object executeJob(String name, String className, Map<String, String> params) {
 
         log.debug("Start job {} execution", name);
         val jobInfo = JobInfo.builder()
@@ -33,12 +34,15 @@ public class JobManagementServiceImpl implements JobManagementService {
         Class clazz = null;
         try {
             clazz = Class.forName(className);
-//            val job = Class.forName("com.payoneer.job.impl.SqlQueryJob");
+            if (Modifier.isAbstract(clazz.getModifiers())) {
+                log.error("Cant instantiate abstract class");
+                throw new IllegalArgumentException("Cant instantiate abstract class");
+            }
             instance = clazz.getConstructor().newInstance();
 
             jobInfoDao.save(jobInfo);
 
-            val result = (Map<String, String>) clazz.getMethod("run", Map.class).invoke(instance, params);
+            val result = clazz.getMethod("run", Map.class).invoke(instance, params);
 
             callSilently(clazz, "commit", instance);
             jobInfoDao.update(jobInfo.toBuilder()

@@ -2,3 +2,6 @@ databaseChangeLog:
   - include:
       file: init/root.yml
       relativeToChangelogFile: true
+  - include:
+      file: demo/root.yml
+      relativeToChangelogFile: true

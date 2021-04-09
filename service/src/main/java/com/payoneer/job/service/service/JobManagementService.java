@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public interface JobManagementService {
 
-    Map<String, String> executeJob(String name, String className, Map<String, String> params);
+    Object executeJob(String name, String className, Map<String, String> params);
 
     JobInfo saveScheduledJob(String name);
 

@@ -34,7 +34,6 @@ public class JobWrapper implements Job {
 
             val result = jobManagementService.executeJob(name, className, params);
             context.setResult(result);
-
         } catch (Exception e) {
             throw new JobExecutionException(e);
         }

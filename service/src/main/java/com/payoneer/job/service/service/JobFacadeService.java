@@ -19,7 +19,7 @@ public interface JobFacadeService {
      * @param params job parameters
      * @return execution result
      */
-    Map<String, String> executeJob(String className, Map<String, String> params);
+    Object executeJob(String className, Map<String, String> params);
 
     /**
      * Schedule job {@code name} with parameters {@code params} at {@code startAt}

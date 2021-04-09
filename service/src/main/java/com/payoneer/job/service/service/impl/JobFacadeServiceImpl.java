@@ -34,7 +34,7 @@ public class JobFacadeServiceImpl implements JobFacadeService {
     private final JobManagementService jobManagementService;
 
     @Override
-    public Map<String, String> executeJob(String className, Map<String, String> params) {
+    public Object executeJob(String className, Map<String, String> params) {
         val jobName = createJobName(className);
         return jobManagementService.executeJob(jobName, className, params);
     }
