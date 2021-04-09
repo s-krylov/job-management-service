@@ -32,7 +32,7 @@ public class JobInfoDaoImpl implements JobInfoDao {
     private static final String UPDATE_QUERY = "" +
             "UPDATE job_info SET name = ?, status = ?" +
             "WHERE id = ?";
-    private static final String GET_ALL_QUERY = "SELECT id, name, state FROM job_info";
+    private static final String GET_ALL_QUERY = "SELECT id, name, status FROM job_info";
     private static final String FIND_BY_ID_QUERY = GET_ALL_QUERY + " WHERE id = ?";
 
     @Override

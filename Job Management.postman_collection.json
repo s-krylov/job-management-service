@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "cb6cf887-2181-4e61-be92-a547bad6938b",
+		"name": "Job Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "send job info",
+			"item": [
+				{
+					"name": "execute select job prod",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jdbcUrl",
+									"value": "jdbc:postgresql://postgresql:5432/postgres",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "postgres",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/service/job/execute/com.payoneer.job.impl.SelectSqlQueryJob",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"service",
+								"job",
+								"execute",
+								"com.payoneer.job.impl.SelectSqlQueryJob"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule select job prod",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jdbcUrl",
+									"value": "jdbc:postgresql://postgresql:5432/postgres",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "postgres",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/service/job/schedule/com.payoneer.job.impl.SelectSqlQueryJob/2021-04-10T00:32:50",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"service",
+								"job",
+								"schedule",
+								"com.payoneer.job.impl.SelectSqlQueryJob",
+								"2021-04-10T00:32:50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "execute Update job prod",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jdbcUrl",
+									"value": "jdbc:postgresql://postgresql:5432/postgres",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "postgres",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "newValue",
+									"value": "Memories",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/service/job/execute/com.payoneer.job.impl.UpdateSqlQueryJob",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"service",
+								"job",
+								"execute",
+								"com.payoneer.job.impl.UpdateSqlQueryJob"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule Update job prod",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jdbcUrl",
+									"value": "jdbc:postgresql://postgresql:5432/postgres",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "postgres",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "newValue",
+									"value": "All Night",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/service/job/schedule/com.payoneer.job.impl.UpdateSqlQueryJob/2021-04-10T01:18:50",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"service",
+								"job",
+								"schedule",
+								"com.payoneer.job.impl.UpdateSqlQueryJob",
+								"2021-04-10T01:18:50"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all job info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{server}}/service/job/get/all",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"service",
+								"job",
+								"get",
+								"all"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get job info by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jdbcUrl",
+									"value": "jdbc:postgresql://postgresql:5432/postgres",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "postgres",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "newValue",
+									"value": "All Night",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/service/job/get/4",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"service",
+								"job",
+								"get",
+								"4"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:8080"
+		}
+	]
+}

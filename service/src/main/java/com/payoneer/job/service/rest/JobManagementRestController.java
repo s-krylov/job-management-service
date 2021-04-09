@@ -44,4 +44,11 @@ public class JobManagementRestController {
         return jobFacadeService.getJobInfo(id);
     }
 
+
+    @RequestMapping(path = "/get/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object getAll() {
+        log.debug("Start query job info");
+        return jobFacadeService.getAllJobInfo();
+    }
+
 }
